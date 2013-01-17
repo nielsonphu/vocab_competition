@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>{{ user.first_name }}'s Classes</title>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}classlist.css" />
+<img src="{{ STATIC_URL }}capstonelogo.jpg" alt="Capstone" />
+<div id="menu"><a id="addclass" href="/class/add/"><img src="{{ STATIC_URL }}img/addclass.png" alt="Add Class" /></a>
+<a id="removeclass" href="/class/remove/"><img src="{{ STATIC_URL }}img/removeclass.png" alt="Remove Class" /></a>
+<a href="/profile/changepassword/"><img src="{{ STATIC_URL }}img/changepassword.png" alt="Change Your Password" /></a>
+<a id="logout" href="/accounts/logout"><img src="{{ STATIC_URL }}img/logout.png" alt="Logout" /></a>
+</div>
+
+
+</head>
+
+
+<body>
+
+<div id="main">
+{% if messages %}
+	{% for message in messages %}
+	<span class="message">{{ message }}</span><br />
+	{% endfor %}
+{% endif %}
+
+<br />
+<br />
+<span id="heading">{{ user.first_name }}'s Classes</span>
+<br />
+<table>
+<tr><th>Class Code</th><th>Level</th><th>Day</th><th>Time</th></tr>
+{% for classroom in classrooms %}
+<tr class="{% cycle 'odd' 'even' %}"><td><a href="/class/studentscores/{{ classroom.code }}/">{{ classroom.code }}</a></td>
+<td>{{ classroom.level }}</td>
+<td>{{ classroom.get_day_display }}</td>
+<td>{{ classroom.description }}</td></tr>
+{% endfor %}
+</table>
+</div>
+
+
+
+</body>
+</html>

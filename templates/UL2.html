@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+<title>UL2</title>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}test1.css" />
+<script type="text/javascript" src="{{ STATIC_URL }}jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+jQuery(window).bind("unload", function() {
+})
+</script>
+</head>
+<body>
+<div id="test">
+<div class="clock">
+<form name="cd"><input class="txt" readonly="true" type="text" value="1:00" border="0" name="disp"></form>
+</div>
+<br />
+<div id="wordbank">
+<br />
+<center><b style="font-size:12pt;">Word Bank</b></center>
+<table>
+<tr><td>trifling</td><td>acquisition</td><td>ruddy</td><td>majestic</td></tr>
+<tr><td>conspicuous</td><td>sombre</td><td>rapture</td><td>compassing</td></tr>
+<tr><td></td><td>unwholesome</td><td>wrought</td><td></td></tr>
+</table>
+</div>
+<br />
+<div id="questions">
+<form id="test1" action="/UL2/score/" method="post">
+{% csrf_token %}<br />
+<center><b style="font-size:12pt;">Questions</b></center>
+<ol>
+<span class="directions">I. Word Replacement: Replace the underlined word with a synonym from the word bank. Spelling must be correct.</span>
+
+<li>She had thought her comment was a <span class="underline">trivial</span> one, but he took it as a serious insult. <input type="hidden" name="studentanswer1" value=""><input type="text" name="studentanswer1"></li>
+<li>He hoped he wouldn't be too <span class="underline">noticeable</span> as he rode the MTR that morning, but seeing as he was wearing a gorilla suit, this was unlikely. <input type="hidden" name="studentanswer2" value=""><input type="text" name="studentanswer2"></li>
+<li>The little girl was proud of the chopsticks she had <span class="underline">made</span> from play dough, but their usefulness turned out to be minimal. <input type="hidden" name="studentanswer3" value=""><input type="text" name="studentanswer3"></li>
+<br />
+<span class="directions">II. Sentence Completion: Fill in the blank with a selection from the word bank. Spelling must be correct. </span>
+
+<li>The family decided that a pet dog might be a worthwhile <input type="hidden" name="studentanswer4" value=""><input type="text" name="studentanswer4"> as a way to teach their children responsibility.</li>
+<li><input type="hidden" name="studentanswer5" value=""><input type="text" name="studentanswer5"> an investigation of all the pet stores in the area turned out to be no easy task, though, as the children wanted to play with every single dog they saw.</li>
+<li>In the end, the family took home a <input type="hidden" name="studentanswer6" value=""><input type="text" name="studentanswer6"> golden retriever, noble in its glossy coat and tall stature.</li>
+<br />
+<span class="directions">III. Reading Comprehension: Choose the best answer.</span>
+
+<li>What is the "valuable acquisition" Mark Twain speaks of at the beginning of the essay?</li>
+	<input type="hidden" name="studentanswer7" value="">
+	<input type="radio" name="studentanswer7" id="A" value="A"><label for="A">A. intimate knowledge of the river's geography and river boating</label><br />   
+	<input type="radio" name="studentanswer7" id="B" value="B"><label for="B">B. expansive knowledge of ways to write about the river</label><br />                       
+	<input type="radio" name="studentanswer7" id="C" value="C"><label for="C">C. knowledge of currents and a boating license</label><br />  
+	<input type="radio" name="studentanswer7" id="D" value="D"><label for="D">D. a steamboat</label><br />
+
+	
+<li>What has he "lost"?</li>
+	<input type="hidden" name="studentanswer8" value="">
+	<input type="radio" name="studentanswer8" id="A" value="A"><label for="A">A. his ability to write poetically about the river</label><br />
+	<input type="radio" name="studentanswer8" id="B" value="B"><label for="B">B. a purely aesthetic appreciation for the river, divorced from practical boating-related concerns</label><br />
+	<input type="radio" name="studentanswer8" id="C" value="C"><label for="C">C. beginner's luck, in terms of sighting possible dangers and interesting shoreline sights</label><br />
+	<input type="radio" name="studentanswer8" id="D" value="D"><label for="D">D. his instinctual aptitude for boating</label><br />
+
+	
+<li>How would you characterize Twain's tone, in the section of the second paragraph bounded by quotes ("this sun means...old landmark?")?</li>
+	<input type="hidden" name="studentanswer9" value="">
+	<input type="radio" name="studentanswer9" id="A" value="A"><label for="A">A. sardonic</label><br />			
+	<input type="radio" name="studentanswer9" id="B" value="B"><label for="B">B. smug</label><br />	
+	<input type="radio" name="studentanswer9" id="C" value="C"><label for="C">C. whimsical</label><br />	
+	<input type="radio" name="studentanswer9" id="D" value="D"><label for="D">D. anxious</label><br />
+
+<li>Why does Twain say he "pitie[s] doctors"?</li>
+	<input type="hidden" name="studentanswer10" value="">
+	<input type="radio" name="studentanswer10" id="A" value="A"><label for="A">A. because they cannot appreciate a human body as an object of beauty</label><br />
+	<input type="radio" name="studentanswer10" id="B" value="B"><label for="B">B. because they only deal with sick people, not with healthy, beautiful ones</label><br />
+	<input type="radio" name="studentanswer10" id="C" value="C"><label for="C">C. because they can become neurotic hypochondriacs</label><br />
+	<input type="radio" name="studentanswer10" id="D" value="D"><label for="D">D. because they spend too much time at work</label><br />
+
+</ol>
+<br />
+<center><button type="submit"><img src="{{ STATIC_URL }}img/submit.png" alt="Submit" /></button></center>
+</form>
+</div>
+</div>
+</body>
+</html>
+

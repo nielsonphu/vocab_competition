@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Capstone Vocabulary</title>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}login.css" />
+<img src="{{ STATIC_URL }}capstonelogo.jpg" alt="Capstone" />
+
+
+</head>
+<body>
+
+<div id="background">
+	{% if form.errors %}
+	<span class="error">Sorry, that's not a valid username or password.</span><br />
+	{% endif %}
+<div id="form">
+	<form action="" method="post">
+		{% csrf_token %}<br />
+		<span class="label">Username:</span><input type="text" name="username" value="{{ username }}" /><br />
+		<span class="label">Password:</span><input type="password" name="password" value="" />
+		<br />
+		<br />
+		<button type="submit">Login</button>
+		<input type="hidden" name="next" value="{{ next|escape }}" />
+	</form>
+</div>
+	
+</div>
+</body>
+</html>

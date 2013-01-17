@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Remove Student</title>
+<img src="{{ STATIC_URL }}capstonelogo.jpg" alt="Capstone" />
+<div id="menu"><a href="/class/studentscores/{{ classroom.code }}/">Return to Class</a> <a id="logout" href="/accounts/logout">Logout</a></div>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}deleteuser.css" />
+</head>
+<body>
+
+<div id="main">
+    {% if form.errors %}
+		<span class="errors">Please fill out the required field below.</span><br /><br />
+    {% endif %}
+	
+<div id="form">
+<span id="heading">Remove Student</span><br /><br />
+    <form action="/class/{{ classroom.code }}/removestudent/" method="post">
+	{% csrf_token %}
+        <table>
+            <tr><th><label for="id_username">Username:</label></th><td>{{  form.username }}</td></tr>
+        </table><br />
+
+        <button type="submit">Submit</button>
+    </form>
+	
+<p>Note: Removing a student will delete all test data associated with that student.</p>
+</div>
+</div>
+</body>
+
+</html>

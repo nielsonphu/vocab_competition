@@ -1,0 +1,116 @@
+<html>
+<head>
+<title>test1</title>
+<img src="{{ STATIC_URL }}capstonelogo.jpg" alt="Capstone" />
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}test1.css" />
+<script type="text/javascript" src="{{ STATIC_URL }}countdown.js"></script>
+</head>
+<body>
+<br />
+<br />
+<div class="clock">
+<form name="cd"><input class="txt" readonly="true" type="text" value="1:00" border="0" name="disp"></form>
+</div>
+<br />
+<br />
+<span class="directions">Read the following passage.</span>
+<div id="passage">
+<p>"Let X Units of Freedom Ring: How do you quantify a country's liberty?" By Katy Waldman. Slate magazine. April 21, 2011.</p>
+
+<p>It's an oft-heard refrain among politicians that America is "the freest country in the world." Bill Clinton said so in his memoir, My Life, arguing for a crackdown on crime: "If we're the 
+most prosperous country in the world, if we're the freest country in the world, why shouldn't we be the safest country in the world?" And just last month Oklahoma State Rep. Sally Kern 
+called the United States "the greatest nation in the world where you have the most opportunities and freedoms." Rhetoric aside, is it even possible to measure freedom?</p>
+
+<p>Many have tried. Freedom is a pretty ineffable concept, but lots of organizations (think tanks, mostly) have come up with possible criteria to assess it-from government transparency, fair 
+elections, and tariff rates on the staid end of the spectrum to the availability of recreational drugs on the quirkier side. Since 2010, the website Freeexistence.org has even provided a 
+meta-index that allows each visitor to weight the liberties she most values; it then uses various existing rankings to generate a list of countries from most to least free.</p>
+
+<p>None of the well-regarded rankings seem to concur with Clinton and Kern about America's standing. One widely cited annual study, the Freedom in the World report, encompasses 194 countries 
+and 14 territories, each of which gets a score on a scale from 1 (Free) to 7 (Not Free), based on the prevalence of political rights (e.g. fair elections) and civil liberties (e.g. freedom 
+of association). For 2010, the United States was one of 48 nations to receive a 1 in both the political rights (PR) and civil liberties (CL) categories. But within that elite cohort, it 
+fell behind countries such as Barbados, Portugal, and Uruguay. Failure to root out government corruption, technical glitches in voting machinery, and a reliance on congressional 
+gerrymandering damaged our showing. We also got docked for having a higher incarceration rate than any other democracy-and because our justice system is broadly perceived as racist in 
+practice, since a disproportionate number of black and Latino males fill our jails. Freedom House's winners? Norway, Luxembourg, Liechtenstein, San Marino, Finland, and Sweden.</p>
+
+<p>Another respected measure comes from conservative think-tank The Heritage Foundation, in partnership with the Wall Street Journal. The Index of Economic Freedom culls data from the World 
+Bank and IMF, looking at factors such as tariff rates, business regulations, how easy it is for employers to hire and fire, and whether the government respects private property. We didn't 
+do so well here, either. Ranked ninth after nations and territories including Hong Kong, Canada, and Ireland, in 2011 the United States wasn't even in the top tier for economic liberty-it 
+appeared in the runner-up category," mostly free." (Why did we underachieve? Too much government spending.)</p>
+
+<p>More bad news: Reporters Without Borders seemed unimpressed in 2010 with the United States' record on freedom of the press. Though we're ranked 20th out of 178 in their Press Freedom Index 
+(rating: "satisfactory"), the organization felt that the American military" use[d] national security concerns to try to curb media access to issues of legitimate public interest," 
+especially news coming out of Afghanistan and Guantanamo.</p>
+
+<p>Of course, definitions of liberty abound, and not all of them are easily quantified. Franklin Delano Roosevelt famously envisioned four freedoms for all Americans, including "freedom from 
+want "and" freedom from fear."* With around 14 percent of the country currently under the poverty line, it's hard to imagine the United States leading the way against deprivation. (For 
+comparison's sake, Taiwan has a poverty rate of about 1 percent, and France clocks in near 6 percent.) Nor, given anti-American backlash from the war on terror, can we count on untroubled 
+security. What about Isaiah Berlin's "positive freedom," the opportunity to fully realize one's potential? Nope: Social mobility has been slowing since the 1980s, and the United States is 
+routinely outranked in that regard by France, Canada, and Denmark.</p>
+
+<p>Do any measures of freedom favor the red, white, and blue? You betcha. Montana is tied with Yemen as the most lax when it comes to the purchase, possession, and open carry of firearms, 
+according to the Gun Rights Index.</p>
+</div>
+
+<div id="questions">
+<span class="directions">Answer the following questions.</span><br />
+<br />
+<br />
+<span class="directions">Word Bank:  To cull, showing, glitch, backlash, staid, crackdown, to abound, gerrymandering, cohort, ineffable, to curb, lax</span>
+
+<form id="test1" action="/test1/score/" method="post">
+{% csrf_token %}
+<ol>
+<span class="directions">I. Replace the underlined word with a synonym from the word bank. </span>
+
+<li>Diane felt unhappy when her music teacher asked her to analyze the Chopin piece-she thought its beauty was <input type="hidden" name="studentanswer1" value=""><input type="text" name="studentanswer1" value="divine">
+, too sublime to be taken apart and examined.</li>
+<li>The principal told Arnold that he'd soon have to <input type="hidden" name="studentanswer2" value=""><input type="text" name="studentanswer2" value="restrain">his outrageous behavior, or else find himself kicked out of finishing school.</li>
+<li>"She has a whole <input type="hidden" name="studentanswer3" value=""><input type="text" name="studentanswer3" value="crew">cooperating with her," Jeremy whispered. "I'd be very careful. Consider her dangerous."</li>
+<br />
+<span class="directions">II. Fill in the blank with a selection from the word bank. </span>
+
+<li>Penelope was terribly upset to learn about <input type="hidden" name="studentanswer4" value=""><input type="text" name="studentanswer4">in the 19th century. After all, her great-great-great uncle had been a senator! </li>
+<li>Julianne couldn't bear such a <input type="hidden" name="studentanswer5" value=""><input type="text" name="studentanswer5">ceremony. She escaped through an emergency exit, wanting to go 
+explore backstage...and set off the fire-alarm in the process.</li>
+<li>The government's plan to distribute 6000 HKD to each permanent resident met with unexpected <input type="hidden" name="studentanswer6" value=""><input type="text" name="studentanswer6">.</li>
+
+	
+<li>Which measure of freedom is most subjective?</li>
+	<input type="hidden" name="studentanswer7" value="">
+	<input type="radio" name="studentanswer7" id="A" value="A"><label for="A">A. "staid" criteria like government transparency</label><br />   
+	<input type="radio" name="studentanswer7" id="B" value="B"><label for="B">B. the availability of recreational drugs</label><br />                       
+	<input type="radio" name="studentanswer7" id="C" value="C"><label for="C">C. rankings on Freexistence.org</label><br />  
+	<input type="radio" name="studentanswer7" id="D" value="D"><label for="D">D. rankings from the Freedom in the World report</label><br />
+
+	
+<li>Which criteria seem most important, according to this article, for determining a country's 'freedom'?</li>
+	<input type="hidden" name="studentanswer8" value="">
+	<input type="radio" name="studentanswer8" id="A" value="A"><label for="A">A. Civil liberties and economic freedom</label><br />
+	<input type="radio" name="studentanswer8" id="B" value="B"><label for="B">B. Freedom of the press</label><br />
+	<input type="radio" name="studentanswer8" id="C" value="C"><label for="C">C. Crime and justice criteria, such as gun laws and an unbiased court system</label><br />
+	<input type="radio" name="studentanswer8" id="D" value="D"><label for="D">D. The opportunity for social mobility</label><br />
+
+	
+<li>What adjective best describes this article?</li>
+	<input type="hidden" name="studentanswer9" value="">
+	<input type="radio" name="studentanswer9" id="A" value="A"><label for="A">A. Conclusive</label><br />			
+	<input type="radio" name="studentanswer9" id="B" value="B"><label for="B">B. Statistical</label><br />	
+	<input type="radio" name="studentanswer9" id="C" value="C"><label for="C">C. Contemplative</label><br />	
+	<input type="radio" name="studentanswer9" id="D" value="D"><label for="D">D. Frustrated</label><br />
+
+	
+<li>Which of the following is not mentioned as a criticism of freedom in America?</li>
+	<input type="hidden" name="studentanswer10" value="">
+	<input type="radio" name="studentanswer10" id="A" value="A"><label for="A">A. Montana gun laws</label><br />
+	<input type="radio" name="studentanswer10" id="B" value="B"><label for="B">B. Election problems</label><br />
+	<input type="radio" name="studentanswer10" id="C" value="C"><label for="C">C. Citizen safety</label><br />
+	<input type="radio" name="studentanswer10" id="D" value="D"><label for="D">D. Access to public-interest information</label><br />
+
+</ol>
+<button id="submitbutton" type="submit" onclick="return confirm('Click OK if you're sure you're done.')">Submit</button>
+</form>
+</div>
+
+</body>
+</html>
+

@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Edit Student Information</title>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}adduser.css" />
+<img src="{{ STATIC_URL }}capstonelogo.jpg" alt="Capstone" />
+<div id="menu"><a href="/class/studentscores/{{ classroom.code }}/"><img src="{{ STATIC_URL }}img/backtoclass.png" alt="Logout" /></a>
+<a id="logout" href="/accounts/logout"><img src="{{ STATIC_URL }}img/logout.png" alt="Logout" /></a>
+</div>
+
+</head>
+<body>
+<div id="main">
+    {% if form.errors %}
+		<span class="errors">Please fill out the required fields below.</span><br /><br />
+    {% endif %}
+
+<div id="form">
+<span id="heading">Edit Student Information</span><br /><br />
+    <form action="/class/{{ classroom.code }}/editstudent/{{ old_user.username }}/" method="post">
+	{% csrf_token %}
+        <table>
+			<tr><th><label for="id_subject">Username:</label></th><td>{{  form.username }}</td></tr>
+			<tr><th><label for="id_password">Password*:</label></th><td>{{ form.password }}</td></tr>
+			<tr><th><label for="id_first_name">First Name:</label></th><td>{{ form.first_name }}</td></tr>
+			<tr><th><label for="id_last_name">Last Name:</label></th><td>{{ form.last_name }}</td></tr>
+			<tr><th><label for="id_grade">Grade (optional):</label></th><td>{{ form.grade }}</td></tr>
+			<tr><th><label for="id_email">E-mail (optional):</label></th><td>{{ form.email }}</td></tr>
+        </table><br />
+		
+		<span style="font-size: 8pt;">*Leave the password field blank if you don't want to edit it</span><br /><br />
+
+        <button type="submit"><img src="{{ STATIC_URL }}img/submit.png" alt="Submit" /></button>
+    </form>
+</div>
+
+</div>
+</body>
+
+</html>

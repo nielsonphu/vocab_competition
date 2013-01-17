@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+<title>UL1</title>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}test1.css" />
+<script type="text/javascript" src="{{ STATIC_URL }}jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+jQuery(window).bind("unload", function() {
+})
+</script>
+</head>
+<body>
+<div id="test">
+<div class="clock">
+<form name="cd"><input class="txt" readonly="true" type="text" value="1:00" border="0" name="disp"></form>
+</div>
+<br />
+<div id="wordbank">
+<br />
+<center><b style="font-size:12pt;">Word Bank</b></center>
+<table>
+<tr><td>veritable</td><td>emblem</td><td>bourgeoisie</td><td>connote</td></tr>
+<tr><td>sterilized</td><td>stingy</td><td>fluorescent</td><td>purveyor</td></tr>
+<tr><td>deride</td><td>dichotomy</td><td>poncey</td><td>gentrification</td></tr>
+</table>
+</div>
+<br />
+<div id="questions">
+<form id="test1" action="/UL1/score/" method="post">
+{% csrf_token %}<br />
+<center><b style="font-size:12pt;">Questions</b></center>
+<ol>
+<span class="directions">I. Word Replacement: Replace the underlined word with a synonym from the word bank. Spelling must be correct.</span>
+
+<li>Leather jackets are often seen as a <span class="underline">symbol</span> of truly serious motorcycle riders. <input type="hidden" name="studentanswer1" value=""><input type="text" name="studentanswer1"></li>
+<li>Hong Kong's many designer boutiques are shopping grounds for the <span class="underline">upper class</span> of both this city and Mainland China. <input type="hidden" name="studentanswer2" value=""><input type="text" name="studentanswer2"></li>
+<li>Wearing a tuxedo generally <span class="underline">indicates</span> great formality. <input type="hidden" name="studentanswer3" value=""><input type="text" name="studentanswer3"></li>
+<br />
+<span class="directions">II. Sentence Completion: Fill in the blank with a selection from the word bank. Spelling must be correct. </span>
+
+<li>When the book was adapted as a movie, some of its adult themes were <input type="hidden" name="studentanswer4" value=""><input type="text" name="studentanswer4"> so that the film would be appropriate for children.</li>
+<li>The producers were not <input type="hidden" name="studentanswer5" value=""><input type="text" name="studentanswer5"> with the film's budget, as they wanted it to be an impressive special-effects spectacle.</li>
+<li>The film was <input type="hidden" name="studentanswer6" value=""><input type="text" name="studentanswer6"> by critics for its negligible character development and poor pacing, but was a box-office success nonetheless.</li>
+<br />
+<span class="directions">III. Reading Comprehension: Choose the best answer.</span>
+
+<li>"Barm (cake), bap, butty, sarnie..." Eanet lists British synonyms for "sandwich" <i>primarily</i> for which of the following reasons:</li>
+	<input type="hidden" name="studentanswer7" value="">
+	<input type="radio" name="studentanswer7" id="A" value="A"><label for="A">A. To illustrate how, just like America, England has a wealth of sandwich-related slang.</label><br />   
+	<input type="radio" name="studentanswer7" id="B" value="B"><label for="B">B. To mock regional British vocabulary.</label><br />                       
+	<input type="radio" name="studentanswer7" id="C" value="C"><label for="C">C. To mock England's obsession with sandwiches.</label><br />  
+	<input type="radio" name="studentanswer7" id="D" value="D"><label for="D">D. To illustrate how universal sandwiches are in English culture, their popularity spanning all regions and socioeconomic backgrounds.</label><br />
+
+	
+<li>According to Eanet, what are the current connotations of the word "brigade?"</li>
+	<input type="hidden" name="studentanswer8" value="">
+	<input type="radio" name="studentanswer8" id="A" value="A"><label for="A">A. A tightly-knit group centered around a given cause or interest.</label><br />
+	<input type="radio" name="studentanswer8" id="B" value="B"><label for="B">B. A distinct group the speaker/writer is dismissing as somehow disrespectable.</label><br />
+	<input type="radio" name="studentanswer8" id="C" value="C"><label for="C">C. A British group advocating sandwiches, foxhunting, and riding.</label><br />
+	<input type="radio" name="studentanswer8" id="D" value="D"><label for="D">D. A militant organization of any kind.</label><br />
+
+	
+<li>What is the "prawn sandwich brigade?"</li>
+	<input type="hidden" name="studentanswer9" value="">
+	<input type="radio" name="studentanswer9" id="A" value="A"><label for="A">A. English football fans who attend matches for the entertainment experience, rather than an actual investment in a team and/or the gameplay.</label><br />			
+	<input type="radio" name="studentanswer9" id="B" value="B"><label for="B">B. Manchester United fans who are snobbish about food.</label><br />	
+	<input type="radio" name="studentanswer9" id="C" value="C"><label for="C">C. Sandwich makers who bring their creations to football matches, and in selling their sandwiches in the stands, distract attention from gameplay.</label><br />	
+	<input type="radio" name="studentanswer9" id="D" value="D"><label for="D">D. English football fans who pack their own lunches for the games.</label><br />
+
+	
+<li>According to Eanet, why did Keane choose 'prawn' instead of 'bacon' as the ingredient to represent the 'sandwich brigade?'</li>
+	<input type="hidden" name="studentanswer10" value="">
+	<input type="radio" name="studentanswer10" id="A" value="A"><label for="A">A. Prawn costs more than bacon, so it is the sign of a truly dedicated football fan, who wants to support the stadium in every possible way.</label><br />
+	<input type="radio" name="studentanswer10" id="B" value="B"><label for="B">B. Prawn is healthier than bacon, so it is the sign of bourgeois fans who care more about their lifestyles than the game.</label><br />
+	<input type="radio" name="studentanswer10" id="C" value="C"><label for="C">C. Prawn costs more and is less 'manly' than bacon, so it is the sign of insincere, bourgeois fans.</label><br />
+	<input type="radio" name="studentanswer10" id="D" value="D"><label for="D">D. Prawn is cheaper than bacon, so it is the sign of casual fans who are more concerned about saving money than enjoying their football experience.</label><br />
+
+</ol>
+<br />
+<center><button id="score" type="submit"><img src="{{ STATIC_URL }}img/submit.png" alt="Submit" /></button></center>
+</form>
+</div>
+</div>
+</body>
+</html>
+
+

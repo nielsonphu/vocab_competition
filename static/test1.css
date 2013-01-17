@@ -1,0 +1,87 @@
+body {
+	color: navy;
+	font-size: 10pt;
+	font-family: verdana;
+	background-color: LightGray;
+}
+
+#wordbank {
+	margin-left:auto;
+	margin-right: auto;
+	height: 260px;
+	width: 600px;
+	border: 2px solid navy;
+	padding: 5px;
+	background-color: white;
+}
+
+#wordbank table {
+	font-size: 12pt;
+}
+
+#wordbank td {
+	width: 140px;
+	height: 50px;
+	text-align: center;
+}
+
+#questions {
+	width: 1100px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 2px solid navy;
+	padding: 10px;
+	background-color: white;
+}
+
+.txt {
+	color: navy;
+	border: double navy;
+	font-family: verdana;
+	font-size: 30pt;
+	font-weight: bold;
+	text-align: center;
+	width: 5em;
+}
+
+div.clock {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.directions {
+	font-weight: bold;
+	color: Maroon;
+}
+
+#title {
+	display: inline-block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+li {
+  margin-top: 1em;
+}
+
+button {
+	border: none;
+	background: none;
+	cursor: pointer;
+}
+
+img {
+	border: none;
+	display: block;
+}
+
+input:hover {
+	background: lightgray;
+}
+
+.underline {
+	border-bottom: 1px navy solid;
+}
+
+	

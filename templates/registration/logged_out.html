@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Capstone Vocabulary</title>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}logged_out.css" />
+<img src="{{ STATIC_URL }}capstonelogo.jpg" alt="Capstone" />
+</head>
+<body>
+<center><img id="bigtitle" src="{{ STATIC_URL }}bigtitle.png" alt="Capstone Spring Vocabulary Competition" /></center>
+
+<div id="background">
+	<span id="logoutmessage">You have successfully logged out.</span><br />
+
+<div id="form">
+	<form action="/accounts/login/" method="post">
+		{% csrf_token %}<br />
+		<span class="label">Username:</span><input type="text" name="username" value="{{ username }}" /><br />
+		<span class="label">Password:</span><input type="password" name="password" value="" />
+		<br />
+		<br />
+		<button type="submit"><img src="{{ STATIC_URL }}img/login.png" alt="Login" /></button>
+		<input type="hidden" name="next" value="{{ next|escape }}" />
+	</form>
+</div>	
+	
+</div>
+</body>
+</html>

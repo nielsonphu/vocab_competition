@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+<title>ML1</title><!-- CHANGE title -->
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}test1.css" />
+<script type="text/javascript" src="{{ STATIC_URL }}jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+jQuery(window).bind("unload", function() {
+})
+</script>
+</head>
+<body>
+<div id="test">
+<div class="clock">
+<form name="cd"><input class="txt" readonly="true" type="text" value="1:00" border="0" name="disp"></form>
+</div>
+<br />
+<div id="wordbank">
+<br />
+<center><b style="font-size:12pt;">Word Bank</b></center>
+<table>
+<tr><td>culminate</td><td>muster</td><td>goon</td><td>qualm</td></tr>
+<tr><td>legion</td><td>raspy</td><td>fanatical</td><td>mainstay</td></tr>
+<tr><td>trifling</td><td>martial</td><td>retraction</td><td>gangly</td></tr>
+</table>
+</div>
+<br />
+<div id="questions">
+<form action="/ML1/score/" method="post"> <!-- CHANGE URL -->
+{% csrf_token %}<br />
+<center><b style="font-size:12pt;">Questions</b></center>
+<ol>
+<span class="directions">Choose the correct answer.</span>
+<li>When are you going to _________ your confidence for the Global Juggling competition?</li>
+	<input type="hidden" name="studentanswer1" value="">
+	<input type="radio" name="studentanswer1" id="A" value="A"><label for="A">A. raspy</label><br />			
+	<input type="radio" name="studentanswer1" id="B" value="B"><label for="B">B. retraction</label><br />	
+	<input type="radio" name="studentanswer1" id="C" value="C"><label for="C">C. culminate</label><br />	
+	<input type="radio" name="studentanswer1" id="D" value="D"><label for="D">D. muster</label><br />
+	
+<li>Don’t talk to me about how much homework you have. It seems so _________ in comparison with my pet tortoise’s illness! </li>
+	<input type="hidden" name="studentanswer2" value="">
+	<input type="radio" name="studentanswer2" id="A" value="A"><label for="A">A. goon</label><br />			
+	<input type="radio" name="studentanswer2" id="B" value="B"><label for="B">B. fanatical</label><br />	
+	<input type="radio" name="studentanswer2" id="C" value="C"><label for="C">C. trifling</label><br />	
+	<input type="radio" name="studentanswer2" id="D" value="D"><label for="D">D. qualm</label><br />
+	
+<li>The Prime Minister has just made a _________ of yesterday’s _________ statements. </li>
+	<input type="hidden" name="studentanswer3" value="">
+	<input type="radio" name="studentanswer3" id="A" value="A"><label for="A">A. culminate, raspy</label><br />			
+	<input type="radio" name="studentanswer3" id="B" value="B"><label for="B">B. retraction, goon</label><br />	
+	<input type="radio" name="studentanswer3" id="C" value="C"><label for="C">C. legion, martial</label><br />	
+	<input type="radio" name="studentanswer3" id="D" value="D"><label for="D">D. retraction, fanatical</label><br />
+	
+<li>What a _________ voice you have today! Make cough drops a _________ of your diet. </li>
+	<input type="hidden" name="studentanswer4" value="">
+	<input type="radio" name="studentanswer4" id="A" value="A"><label for="A">A. martial, qualm</label><br />			
+	<input type="radio" name="studentanswer4" id="B" value="B"><label for="B">B. qualm, mainstay</label><br />	
+	<input type="radio" name="studentanswer4" id="C" value="C"><label for="C">C. raspy, mainstay</label><br />	
+	<input type="radio" name="studentanswer4" id="D" value="D"><label for="D">D. gangly, legion</label><br />
+	
+<li>"How did the battles in the novel _________?" "I'm not sure; the book was too _________ for my taste, so I stopped reading."</li>
+	<input type="hidden" name="studentanswer5" value="">
+	<input type="radio" name="studentanswer5" id="A" value="A"><label for="A">A. legion, gangly</label><br />			
+	<input type="radio" name="studentanswer5" id="B" value="B"><label for="B">B. culminate, martial</label><br />	
+	<input type="radio" name="studentanswer5" id="C" value="C"><label for="C">C. muster, goon</label><br />	
+	<input type="radio" name="studentanswer5" id="D" value="D"><label for="D">D. muster, raspy</label><br />
+	
+<li>"Don't worry! Your _________s are standing in the way of your success."</li>
+	<input type="hidden" name="studentanswer6" value="">
+	<input type="radio" name="studentanswer6" id="A" value="A"><label for="A">A. legion</label><br />			
+	<input type="radio" name="studentanswer6" id="B" value="B"><label for="B">B. mainstay</label><br />	
+	<input type="radio" name="studentanswer6" id="C" value="C"><label for="C">C. qualm</label><br />	
+	<input type="radio" name="studentanswer6" id="D" value="D"><label for="D">D. muster</label><br />
+	
+<li>Russian state television portrays Putin as:</li>
+	<input type="hidden" name="studentanswer7" value="">
+	<input type="radio" name="studentanswer7" id="A" value="A"><label for="A">A. a lovable character</label><br />			
+	<input type="radio" name="studentanswer7" id="B" value="B"><label for="B">B. a legitimately chosen leader</label><br />	
+	<input type="radio" name="studentanswer7" id="C" value="C"><label for="C">C. a fierce crime fighter</label><br />	
+	<input type="radio" name="studentanswer7" id="D" value="D"><label for="D">D. a realist who will do what it takes to maintain power</label><br />
+	
+<li>Which word least describes the last paragraph's tone?</li>
+	<input type="hidden" name="studentanswer8" value="">
+	<input type="radio" name="studentanswer8" id="A" value="A"><label for="A">A. weary</label><br />   
+	<input type="radio" name="studentanswer8" id="B" value="B"><label for="B">B. optimistic</label><br />                       
+	<input type="radio" name="studentanswer8" id="C" value="C"><label for="C">C. objective</label><br />  
+	<input type="radio" name="studentanswer8" id="D" value="D"><label for="D">D. informative</label><br />
+
+<li>What is debatable about <i>Anatomy of a Protest?</i></li>
+	<input type="hidden" name="studentanswer9" value="">
+	<input type="radio" name="studentanswer9" id="A" value="A"><label for="A">A. Whether it is interesting</label><br />			
+	<input type="radio" name="studentanswer9" id="B" value="B"><label for="B">B. The need to repeat it</label><br />	
+	<input type="radio" name="studentanswer9" id="C" value="C"><label for="C">C. Putin's explicit support for the documentary</label><br />	
+	<input type="radio" name="studentanswer9" id="D" value="D"><label for="D">D. Its objectivity and thoroughness</label><br />
+
+	
+<li>What is not true of the brigadiers mentioned in this article?</li>
+	<input type="hidden" name="studentanswer10" value="">
+	<input type="radio" name="studentanswer10" id="A" value="A"><label for="A">A. They are motivated by money</label><br />
+	<input type="radio" name="studentanswer10" id="B" value="B"><label for="B">B. Their job includes paying hired protesters</label><br />
+	<input type="radio" name="studentanswer10" id="C" value="C"><label for="C">C. Their job is not risk-free</label><br />
+	<input type="radio" name="studentanswer10" id="D" value="D"><label for="D">D. The majority have fanatical political allegiances</label><br />
+
+</ol>
+<br />
+<center><button type="submit"><img src="{{ STATIC_URL }}img/submit.png" alt="Submit" /></button></center>
+</form>
+</div>
+</div>
+</body>
+</html>
+

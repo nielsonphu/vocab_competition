@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+<title>test1</title>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}test1.css" />
+<script type="text/javascript" src="{{ STATIC_URL }}jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+jQuery(window).bind("unload", function() {
+})
+</script>
+</head>
+<body>
+<div id="test">
+<div class="clock">
+<form name="cd"><input class="txt" readonly="true" type="text" value="1:00" border="0" name="disp"></form>
+</div>
+<br />
+<div id="wordbank">
+<br />
+<center><b style="font-size:12pt;">Word Bank</b></center>
+<table>
+<tr><td>to cull</td><td>showing</td><td>glitch</td><td>backlash</td></tr>
+<tr><td>staid</td><td>crackdown</td><td>to abound</td><td>gerrymandering</td></tr>
+<tr><td>cohort</td><td>ineffable</td><td>to curb</td><td>lax</td></tr>
+</table>
+</div>
+<br />
+<div id="questions">
+<form id="test1" action="/test1/score/" method="post">
+{% csrf_token %}<br />
+<center><b style="font-size:12pt;">Questions</b></center>
+<ol>
+<span class="directions">I. Replace the underlined word with a synonym from the word bank. Spelling must be correct.</span>
+
+<li>Diane felt unhappy when her music teacher asked her to analyze the Chopin piece-she thought its beauty was <span class="underline">divine</span>, too sublime to be taken apart and examined. <input type="hidden" name="studentanswer1" value=""><input type="text" name="studentanswer1"></li>
+<li>The principal told Arnold that he'd soon have to <span class="underline">restrain</span> his outrageous behavior, or else find himself kicked out of finishing school. <input type="hidden" name="studentanswer2" value=""><input type="text" name="studentanswer2"></li>
+<li>"She has a whole <span class="underline">crew</span> cooperating with her," Jeremy whispered. "I'd be very careful. Consider her dangerous." <input type="hidden" name="studentanswer3" value=""><input type="text" name="studentanswer3"></li>
+<br />
+<span class="directions">II. Fill in the blank with a selection from the word bank. Spelling must be correct. </span>
+
+<li>Penelope was terribly upset to learn about <input type="hidden" name="studentanswer4" value=""><input type="text" name="studentanswer4">in the 19th century. After all, her great-great-great uncle had been a senator! </li>
+<li>Julianne couldn't bear such a <input type="hidden" name="studentanswer5" value=""><input type="text" name="studentanswer5">ceremony. She escaped through an emergency exit, wanting to go 
+explore backstage...and set off the fire-alarm in the process.</li>
+<li>The government's plan to distribute 6000 HKD to each permanent resident met with unexpected <input type="hidden" name="studentanswer6" value=""><input type="text" name="studentanswer6">.</li>
+
+	
+<li>Which measure of freedom is most subjective?</li>
+	<input type="hidden" name="studentanswer7" value="">
+	<input type="radio" name="studentanswer7" id="A" value="A"><label for="A">A. "staid" criteria like government transparency</label><br />   
+	<input type="radio" name="studentanswer7" id="B" value="B"><label for="B">B. the availability of recreational drugs</label><br />                       
+	<input type="radio" name="studentanswer7" id="C" value="C"><label for="C">C. rankings on Freexistence.org</label><br />  
+	<input type="radio" name="studentanswer7" id="D" value="D"><label for="D">D. rankings from the Freedom in the World report</label><br />
+
+	
+<li>Which criteria seem most important, according to this article, for determining a country's 'freedom'?</li>
+	<input type="hidden" name="studentanswer8" value="">
+	<input type="radio" name="studentanswer8" id="A" value="A"><label for="A">A. Civil liberties and economic freedom</label><br />
+	<input type="radio" name="studentanswer8" id="B" value="B"><label for="B">B. Freedom of the press</label><br />
+	<input type="radio" name="studentanswer8" id="C" value="C"><label for="C">C. Crime and justice criteria, such as gun laws and an unbiased court system</label><br />
+	<input type="radio" name="studentanswer8" id="D" value="D"><label for="D">D. The opportunity for social mobility</label><br />
+
+	
+<li>What adjective best describes this article?</li>
+	<input type="hidden" name="studentanswer9" value="">
+	<input type="radio" name="studentanswer9" id="A" value="A"><label for="A">A. Conclusive</label><br />			
+	<input type="radio" name="studentanswer9" id="B" value="B"><label for="B">B. Statistical</label><br />	
+	<input type="radio" name="studentanswer9" id="C" value="C"><label for="C">C. Contemplative</label><br />	
+	<input type="radio" name="studentanswer9" id="D" value="D"><label for="D">D. Frustrated</label><br />
+
+	
+<li>Which of the following is not mentioned as a criticism of freedom in America?</li>
+	<input type="hidden" name="studentanswer10" value="">
+	<input type="radio" name="studentanswer10" id="A" value="A"><label for="A">A. Montana gun laws</label><br />
+	<input type="radio" name="studentanswer10" id="B" value="B"><label for="B">B. Election problems</label><br />
+	<input type="radio" name="studentanswer10" id="C" value="C"><label for="C">C. Citizen safety</label><br />
+	<input type="radio" name="studentanswer10" id="D" value="D"><label for="D">D. Access to public-interest information</label><br />
+
+</ol>
+<br />
+<center><button type="submit"><img src="{{ STATIC_URL }}img/submit.png" alt="Submit" /></button></center>
+</form>
+</div>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Capstone Test</title>
+<img src="{{ STATIC_URL }}capstonelogo.jpg" alt="Capstone" />
+<div id="menu"><a href="/accounts/profile/">Return to Main Page</a> <a id="logout" href="/accounts/logout">Logout</a></div>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}testlanding.css" />
+</head>
+
+<body>
+<div id="main">
+<h3>Read Carefully:</h3>
+
+<p>Once you enter the test, DO NOT press back or refresh the page. If you do, you will NOT be allowed
+to reenter the test and your score will be saved as incomplete.</p>
+
+<p>The test is timed. Once time is up, your answers will be automatically submitted, and you will
+not be able to reenter the test again.</p>
+
+<p>You MUST complete the test before the deadline set by your teacher.</p>
+
+<p>Once you are ready, click below:</p>
+
+<p><a id="takethetest" href="/test/{{ testname }}/">Take the Test</a></p>
+<br />
+<br />
+<br />
+<p>If there are any technical difficulties, please send an email to nielson@capstoneprep.com</p>
+</div>
+</body>
+</html>

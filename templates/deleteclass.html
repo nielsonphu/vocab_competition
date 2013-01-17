@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Remove {{ user.first_name }}'s Class</title>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}deleteclass.css" />
+<img src="{{ STATIC_URL }}capstonelogo.jpg" alt="Capstone" />
+<div id="menu"><a href="/accounts/profile/"><img src="{{ STATIC_URL }}img/backtoclasslist.png" alt="Back to Class List" /></a>
+<a id="logout" href="/accounts/logout/"><img src="{{ STATIC_URL }}img/logout.png" alt="Logout" /></a>
+</div>
+</head>
+
+
+<body>
+
+
+
+<div id="main">
+    {% if form.errors %}
+		<span class="errors">Please fill out the required fields below.</span><br /><br />
+    {% endif %} 
+	
+<div id="form">
+<span id="heading">Remove Class</span><br /><br />
+    <form action="/class/remove/" method="post">
+	{% csrf_token %}
+        <table>
+			<tr><th><label for="id_code">Code:</label></th><td>{{  form.code }}</td></tr>
+        </table>
+		<br />
+        <button type="submit"><img src="{{ STATIC_URL }}img/submit.png" alt="Submit" /></button>
+    </form>
+	
+<p>Note: Removing a class will remove all user accounts and test data for that class.</p>
+</div>
+</div>
+</body>
+
+</html>

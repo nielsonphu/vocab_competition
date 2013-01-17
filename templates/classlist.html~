@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>{{ user.first_name }}'s Classes</title>
+<img src="{{ STATIC_URL }}capstonelogo.jpg" alt="Capstone" />
+<div id="menu"><a id="addclass" href="/class/add/">Add Class</a> <a id="removeclass" href="/class/remove/">Remove Class</a> <a href="/profile/changepassword/">Change Your Password</a> <a id="logout" href="/accounts/logout">Logout</a></div>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}classlist.css" />
+
+</head>
+
+
+<body>
+
+<div id="main">
+{% if messages %}
+	{% for message in messages %}
+	<span class="message">{{ message }}</span><br />
+	{% endfor %}
+{% endif %}
+
+<br />
+<br />
+<span id="heading">{{ user.first_name }}'s Classes</span>
+<table>
+<tr><th>Class Code</th><th>Description</th></tr>
+{% for classroom in classrooms %}
+<tr><td><a href="/class/studentscores/{{ classroom.code }}/">{{ classroom.code }}</a></td><td>{{ classroom.description }}</td></tr>
+{% endfor %}
+</table>
+</div>
+
+
+
+</body>
+</html>

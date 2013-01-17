@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>{{ user.first_name }}'s Tests</title>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}profile.css" />
+<img id="logo" src="{{ STATIC_URL }}capstone_logo.png" alt="Capstone" />
+<div id="menu"><a href="/profile/changepassword/"><img src="{{ STATIC_URL }}img/changepassword.png" alt="Change Your Password" /></a>
+<a id="logout" href="/accounts/logout"><img src="{{ STATIC_URL }}img/logout.png" alt="Logout" /></a>
+</div>
+
+</head>
+
+<body>
+
+<div id="main">
+<span id="welcome">Welcome {{ user.first_name }} {{ user.last_name }}!</span><br />
+<br />
+{% if messages %}
+	{% for message in messages %}
+	<span class="message">{{ message }}</span> <br /><br /><br />
+	{% endfor %}
+{% endif %}
+<span id="heading">Test Record</span><br />
+<br />
+<table>
+<tr><th>Test Name</th><th>Score</th></tr>
+{% for record in test_and_score_list %}
+	<tr class="{% cycle 'odd' 'even' %}">
+	{% if "take_test" in record.2 %}
+	<td><a href="{{ record.0.name }}">{{ record.0.name }}</a></td>
+	{% else %}
+	<td>{{ record.0.name }}</td>
+	{% endif %}
+	<td>{{ record.1 }}</td>
+	</tr>
+{% endfor %}
+</table>
+</div>
+</body>
+</html>

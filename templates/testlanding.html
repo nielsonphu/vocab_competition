@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>{{ testname }}</title>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}testlanding.css" />
+<img id="logo" src="{{ STATIC_URL }}capstonelogo.jpg" alt="Capstone" />
+<div id="menu">
+<a href="/accounts/profile/"><img src="{{ STATIC_URL }}img/backtotests.png" alt="Back to Tests" /></a>
+<a id="logout" href="/accounts/logout"><img src="{{ STATIC_URL }}img/logout.png" alt="Logout" /></a>
+</div>
+
+<script type="text/javascript" src="{{ STATIC_URL }}jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+var mins
+var secs;
+
+function cd() {
+	mins = 1 * m("1"); // change minutes here
+	secs = 0 + s(":05"); // change seconds here (always add an additional second to your total)
+	redo();
+}
+
+function m(obj) {
+	for(var i = 0; i < obj.length; i++) {
+		if(obj.substring(i, i + 1) == ":")
+		break;
+	}
+	return(obj.substring(0, i));
+}
+
+function s(obj) {
+	for(var i = 0; i < obj.length; i++) {
+		if(obj.substring(i, i + 1) == ":")
+		break;
+	}
+	return(obj.substring(i + 1, obj.length));
+}
+
+function dis(mins,secs) {
+	var disp;
+	if(mins <= 9) {
+		disp = " 0";
+	} else {
+		disp = " ";
+	}
+	disp += mins + ":";
+	if(secs <= 9) {
+		disp += "0" + secs;
+	} else {
+		disp += secs;
+	}
+	return(disp);
+}
+
+function redo() {
+	secs--;
+	if(secs == -1) {
+		secs = 59;
+		mins--;
+	}
+	document.cd.disp.value = dis(mins,secs); // setup additional displays here.
+	if((mins == 0) && (secs == 0)) {
+		window.alert("Time is up. Press OK to Submit."); // change timeout message as required
+		document.forms["test1"].submit() // window.location = "/test1/score/" // redirects to specified page once timer ends and ok button is pressed
+	} else {
+		cd = setTimeout("redo()",1000);
+	}
+}
+
+$(function() {
+	$('#takethetest').click(function() {
+		$('<div id="load" />').load('/test/{{ testname }}/', function() {
+		$('#logo').remove();
+		$('#menu').remove();
+		$('#main').remove();
+		$(this).hide().appendTo('#container').fadeIn(3000);
+		cd();
+		});
+
+		return false;
+	});
+});
+</script>
+</head>
+
+<body>
+<div id="main">
+<h3>Read Carefully:</h3>
+
+<p>Once you enter the test, <span style="color:red;">DO NOT press back or refresh the page.</span> If you do, you will NOT be allowed
+to reenter the test and your score will be saved as incomplete.</p>
+
+<p>The test is timed. Once time is up, your answers will be automatically submitted, and you will
+not be able to reenter the test again.</p>
+
+<p>Not all students are given the same version of the test. You MUST complete the test before your next weekly class at Capstone.</p>
+
+<p>Once you are ready, click below:</p>
+
+<p><a id="takethetest" href="#"><!--href="/test/{{ testname }}/"--><img src="{{ STATIC_URL }}img/takethetest.png" alt="Take the Test" /></a></p>
+<br />
+<br />
+<br />
+<p>If there are any technical difficulties, please send an email to nielson@capstoneprep.com</p>
+</div>
+</body>
+</html>
+
+<div id="container">
+</div>

@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+<title>LL1</title>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}test1.css" />
+<script type="text/javascript" src="{{ STATIC_URL }}jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+jQuery(window).bind("unload", function() {
+})
+</script>
+</head>
+<body>
+<div id="test">
+<div class="clock">
+<form name="cd"><input class="txt" readonly="true" type="text" value="1:00" border="0" name="disp"></form>
+</div>
+<br />
+<div id="wordbank">
+<br />
+<center><b style="font-size:12pt;">Word Bank</b></center>
+<table>
+<tr><td>reflection</td><td>trigger</td><td>mourn</td><td>closure</td></tr>
+<tr><td>affected</td><td>pledge</td><td>tremor</td><td>devastation</td></tr>
+<tr><td>exposure</td><td>debris</td><td>dispose of</td><td>incineration</td></tr>
+<tr><td></td><td>reduce</td><td>reliance</td></tr>
+</table>
+</div>
+<br />
+<div id="questions">
+<form action="/LL1/score/" method="post">
+{% csrf_token %}<br />
+<center><b style="font-size:12pt;">Questions</b></center>
+<ol>
+<span class="directions">Choose the correct answer.</span>
+<li>My mom said my room looked like a disaster, with __________ all over the floor.</li>
+	<input type="hidden" name="studentanswer1" value="">
+	<input type="radio" name="studentanswer1" id="A" value="A"><label for="A">A. debris</label><br />			
+	<input type="radio" name="studentanswer1" id="B" value="B"><label for="B">B. tremor</label><br />	
+	<input type="radio" name="studentanswer1" id="C" value="C"><label for="C">C. devastation</label><br />	
+	<input type="radio" name="studentanswer1" id="D" value="D"><label for="D">D. mourn</label><br />
+	
+<li>My mom said I needed time for __________ to think about what I'd done when I made my room so messy.</li>
+	<input type="hidden" name="studentanswer2" value="">
+	<input type="radio" name="studentanswer2" id="A" value="A"><label for="A">A. debris</label><br />			
+	<input type="radio" name="studentanswer2" id="B" value="B"><label for="B">B. pledge</label><br />	
+	<input type="radio" name="studentanswer2" id="C" value="C"><label for="C">C. reflection</label><br />	
+	<input type="radio" name="studentanswer2" id="D" value="D"><label for="D">D. reliance</label><br />
+	
+<li>After thinking for a long time, I __________ to my mother that I would never cause such __________ ever again.</li>
+	<input type="hidden" name="studentanswer3" value="">
+	<input type="radio" name="studentanswer3" id="A" value="A"><label for="A">A. triggered, closure</label><br />			
+	<input type="radio" name="studentanswer3" id="B" value="B"><label for="B">B. mourned, incineration</label><br />	
+	<input type="radio" name="studentanswer3" id="C" value="C"><label for="C">C. reduced, reliance</label><br />	
+	<input type="radio" name="studentanswer3" id="D" value="D"><label for="D">D. pledged, devastation</label><br />
+	
+<li>My mom forgave me, but made me __________ the mess which had __________ her anger.</li>
+	<input type="hidden" name="studentanswer4" value="">
+	<input type="radio" name="studentanswer4" id="A" value="A"><label for="A">A. debris, incineration</label><br />			
+	<input type="radio" name="studentanswer4" id="B" value="B"><label for="B">B. affected, pledged</label><br />	
+	<input type="radio" name="studentanswer4" id="C" value="C"><label for="C">C. dispose of, triggered</label><br />	
+	<input type="radio" name="studentanswer4" id="D" value="D"><label for="D">D. reduce, reliance</label><br />
+	
+<li>When cleaning up the mess, it became clear that I needed to __________ the number of Harry Potter action figures I owned.</li>
+	<input type="hidden" name="studentanswer5" value="">
+	<input type="radio" name="studentanswer5" id="A" value="A"><label for="A">A. affected</label><br />			
+	<input type="radio" name="studentanswer5" id="B" value="B"><label for="B">B. reduce</label><br />	
+	<input type="radio" name="studentanswer5" id="C" value="C"><label for="C">C. incineration</label><br />	
+	<input type="radio" name="studentanswer5" id="D" value="D"><label for="D">D. reliance</label><br />
+	
+<li>My room had clearly become __________ by my own __________ on collecting Harry Potter toys.</li>
+	<input type="hidden" name="studentanswer6" value="">
+	<input type="radio" name="studentanswer6" id="A" value="A"><label for="A">A. reduced, pledge</label><br />			
+	<input type="radio" name="studentanswer6" id="B" value="B"><label for="B">B. debris, incineration</label><br />	
+	<input type="radio" name="studentanswer6" id="C" value="C"><label for="C">C. triggered, closure</label><br />	
+	<input type="radio" name="studentanswer6" id="D" value="D"><label for="D">D. affected, reliance</label><br />
+	
+<li>Why did people in Ishinomaki light 2,000 candles?</li>
+	<input type="hidden" name="studentanswer7" value="">
+	<input type="radio" name="studentanswer7" id="A" value="A"><label for="A">A. to celebrate the survivors of the earthquake</label><br />			
+	<input type="radio" name="studentanswer7" id="B" value="B"><label for="B">B. to protest to the government</label><br />	
+	<input type="radio" name="studentanswer7" id="C" value="C"><label for="C">C. to mourn the victims of the earthquake</label><br />	
+	<input type="radio" name="studentanswer7" id="D" value="D"><label for="D">D. to create an art piece</label><br />
+	
+<li>What was destroyed that made people worry the most?</li>
+	<input type="hidden" name="studentanswer8" value="">
+	<input type="radio" name="studentanswer8" id="A" value="A"><label for="A">A. A school that had children inside</label><br />   
+	<input type="radio" name="studentanswer8" id="B" value="B"><label for="B">B. A chemical plant that was leaking chemicals</label><br />                       
+	<input type="radio" name="studentanswer8" id="C" value="C"><label for="C">C. An airport so no one could leave</label><br />  
+	<input type="radio" name="studentanswer8" id="D" value="D"><label for="D">D. A power plant that was leaking radiation</label><br />
+
+<li>What did the government pledge to do as a result of question 8?</li>
+	<input type="hidden" name="studentanswer9" value="">
+	<input type="radio" name="studentanswer9" id="A" value="A"><label for="A">A. to build stronger schools</label><br />			
+	<input type="radio" name="studentanswer9" id="B" value="B"><label for="B">B. to give more money to volunteers</label><br />	
+	<input type="radio" name="studentanswer9" id="C" value="C"><label for="C">C. to reduce Japan's reliance on nuclear power</label><br />	
+	<input type="radio" name="studentanswer9" id="D" value="D"><label for="D">D. to focus on rebuilding airports first</label><br />
+
+	
+<li>What did Emperor Akihito mean when he said "We shall not let our memory of the disasters fade"?</li>
+	<input type="hidden" name="studentanswer10" value="">
+	<input type="radio" name="studentanswer10" id="A" value="A"><label for="A">A. They should forget the past and move on</label><br />
+	<input type="radio" name="studentanswer10" id="B" value="B"><label for="B">B. They should learn from the past</label><br />
+	<input type="radio" name="studentanswer10" id="C" value="C"><label for="C">C. They should repeat the past</label><br />
+	<input type="radio" name="studentanswer10" id="D" value="D"><label for="D">D. They should ignore the past</label><br />
+
+</ol>
+<br />
+<center><button type="submit"><img src="{{ STATIC_URL }}img/submit.png" alt="Submit" /></button></center>
+</form>
+</div>
+</div>
+</body>
+</html>
+

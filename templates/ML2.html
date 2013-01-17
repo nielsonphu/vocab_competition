@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+<title>ML2</title><!-- CHANGE title -->
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}test1.css" />
+<script type="text/javascript" src="{{ STATIC_URL }}jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+jQuery(window).bind("unload", function() {
+})
+</script>
+</head>
+<body>
+<div id="test">
+<div class="clock">
+<form name="cd"><input class="txt" readonly="true" type="text" value="1:00" border="0" name="disp"></form>
+</div>
+<br />
+<div id="wordbank">
+<br />
+<center><b style="font-size:12pt;">Word Bank</b></center>
+<table>
+<tr><td>accountability</td><td>to facilitate</td><td>testament</td><td>volatility</td></tr>
+<tr><td>innovative</td><td>bilateral</td><td>empowering</td><td>to forge</td></tr>
+<tr><td>poised</td><td>to unfold</td><td>towering</td><td></td></tr>
+</table>
+</div>
+<br />
+<div id="questions">
+<form action="/ML2/score/" method="post"> <!-- CHANGE URL -->
+{% csrf_token %}<br />
+<center><b style="font-size:12pt;">Questions</b></center>
+<ol>
+<span class="directions">Choose the correct answer.</span>
+<li>I was wonderfully excited for my family's trip to the moon, but I never could have guessed how the holiday would _________.</li>
+	<input type="hidden" name="studentanswer1" value="">
+	<input type="radio" name="studentanswer1" id="A" value="A"><label for="A">A. facilitate</label><br />			
+	<input type="radio" name="studentanswer1" id="B" value="B"><label for="B">B. empowering</label><br />	
+	<input type="radio" name="studentanswer1" id="C" value="C"><label for="C">C. unfold</label><br />	
+	<input type="radio" name="studentanswer1" id="D" value="D"><label for="D">D. forge</label><br />
+	
+<li>Aunt Meghan had shared dozens of fascinating stories from her first trip there in 2000. "Despite the lack of resources, they've created a marvelous civilization," she recalled. "The moon settlers are entirely _________."</li>
+	<input type="hidden" name="studentanswer2" value="">
+	<input type="radio" name="studentanswer2" id="A" value="A"><label for="A">A. bilateral</label><br />			
+	<input type="radio" name="studentanswer2" id="B" value="B"><label for="B">B. innovative</label><br />	
+	<input type="radio" name="studentanswer2" id="C" value="C"><label for="C">C. empowering</label><br />	
+	<input type="radio" name="studentanswer2" id="D" value="D"><label for="D">D. poised</label><br />
+	
+<li>When the great day of departure finally arrived, we climbed into the _________ spacecraft; both excited and nervous about the take-off, our emotions had a bit of _________. </li>
+	<input type="hidden" name="studentanswer3" value="">
+	<input type="radio" name="studentanswer3" id="A" value="A"><label for="A">A. innovative, accountability</label><br />			
+	<input type="radio" name="studentanswer3" id="B" value="B"><label for="B">B. empowering, testament</label><br />	
+	<input type="radio" name="studentanswer3" id="C" value="C"><label for="C">C. unfold, forge</label><br />	
+	<input type="radio" name="studentanswer3" id="D" value="D"><label for="D">D. towering, volatility </label><br />
+	
+<li>We were awestruck to see the ship's complexly detailed controls. "This knob is meant _________ landing, and these buttons control air conditioning and milkshake blending," Captain Ariel explained proudly, polishing each one as the tour progressed.</li>
+	<input type="hidden" name="studentanswer4" value="">
+	<input type="radio" name="studentanswer4" id="A" value="A"><label for="A">A. to unfold</label><br />			
+	<input type="radio" name="studentanswer4" id="B" value="B"><label for="B">B. facilitating</label><br />	
+	<input type="radio" name="studentanswer4" id="C" value="C"><label for="C">C. bilateral</label><br />	
+	<input type="radio" name="studentanswer4" id="D" value="D"><label for="D">D. to facilitate</label><br />
+	
+<li>Only a moment later, her face took on an expression of alarm. "Good gracious!" she cried. "The CapStolater device has come apart! We'll have to _________ a new one!" </li>
+	<input type="hidden" name="studentanswer5" value="">
+	<input type="radio" name="studentanswer5" id="A" value="A"><label for="A">A. forge</label><br />			
+	<input type="radio" name="studentanswer5" id="B" value="B"><label for="B">B. innovative</label><br />	
+	<input type="radio" name="studentanswer5" id="C" value="C"><label for="C">C. empowering</label><br />	
+	<input type="radio" name="studentanswer5" id="D" value="D"><label for="D">D. poised</label><br />
+	
+<li>"I can help," murmured a quiet voice in back: my six year-old cousin, Andromeda, who was forever reading science fiction novels in her spare time. Sure enough, she'd replaced the broken part in no time. What a _________ to her intelligence and memory! </li>
+	<input type="hidden" name="studentanswer6" value="">
+	<input type="radio" name="studentanswer6" id="A" value="A"><label for="A">A. forge</label><br />			
+	<input type="radio" name="studentanswer6" id="B" value="B"><label for="B">B. bilateral</label><br />	
+	<input type="radio" name="studentanswer6" id="C" value="C"><label for="C">C. testament</label><br />	
+	<input type="radio" name="studentanswer6" id="D" value="D"><label for="D">D. accountability</label><br />
+	
+<li>What is unique about the MCC’s method for giving foreign aid?</li>
+	<input type="hidden" name="studentanswer7" value="">
+	<input type="radio" name="studentanswer7" id="A" value="A"><label for="A">A. It gives more generous donations than any other major organization</label><br />			
+	<input type="radio" name="studentanswer7" id="B" value="B"><label for="B">B. It is willing to build infrastructure, instead of just donating money</label><br />	
+	<input type="radio" name="studentanswer7" id="C" value="C"><label for="C">C. Both donor and recipient work together to plan projects and share accountability</label><br />	
+	<input type="radio" name="studentanswer7" id="D" value="D"><label for="D">D. The recipient countries have large celebrations for project completions</label><br />
+	
+<li>The author's tone is best described as:</li>
+	<input type="hidden" name="studentanswer8" value="">
+	<input type="radio" name="studentanswer8" id="A" value="A"><label for="A">A. Optimistic</label><br />   
+	<input type="radio" name="studentanswer8" id="B" value="B"><label for="B">B. Skeptical</label><br />                       
+	<input type="radio" name="studentanswer8" id="C" value="C"><label for="C">C. Derogatory</label><br />  
+	<input type="radio" name="studentanswer8" id="D" value="D"><label for="D">D. Overjoyed</label><br />
+
+<li>The article's focus is foreign development aid and:</li>
+	<input type="hidden" name="studentanswer9" value="">
+	<input type="radio" name="studentanswer9" id="A" value="A"><label for="A">A. Human rights</label><br />			
+	<input type="radio" name="studentanswer9" id="B" value="B"><label for="B">B. Economic</label><br />	
+	<input type="radio" name="studentanswer9" id="C" value="C"><label for="C">C. American politics</label><br />	
+	<input type="radio" name="studentanswer9" id="D" value="D"><label for="D">D. Transportation</label><br />
+
+	
+<li>Why was highway development so important in Ghana?</li>
+	<input type="hidden" name="studentanswer10" value="">
+	<input type="radio" name="studentanswer10" id="A" value="A"><label for="A">A. The project strengthens Ghana's relationship with the United States</label><br />
+	<input type="radio" name="studentanswer10" id="B" value="B"><label for="B">B. Recent disasters had largely destroyed Ghana's infrastructure</label><br />
+	<input type="radio" name="studentanswer10" id="C" value="C"><label for="C">C. Transportation projects are relatively easy to monitor and set clear goals</label><br />
+	<input type="radio" name="studentanswer10" id="D" value="D"><label for="D">D. Infrastructure supports both urban and rural economies in Ghana</label><br />
+
+</ol>
+<br />
+<center><button type="submit"><img src="{{ STATIC_URL }}img/submit.png" alt="Submit" /></button></center>
+</form>
+</div>
+</div>
+</body>
+</html>
+

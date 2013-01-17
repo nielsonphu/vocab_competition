@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+{% load guardian_tags %}
+{% load customtags %}
+<title>Class {{ classroom.code }}</title>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}studentscores.css" />
+<img src="{{ STATIC_URL }}capstonelogo.jpg" alt="Capstone" />
+<div id="menu">
+<a href="/class/{{ classroom.code }}/addstudent/"><img src="{{ STATIC_URL }}img/addstudent.png" alt="Add Student" /></a>
+<a href="/class/{{ classroom.code }}/removestudent/"><img src="{{ STATIC_URL }}img/removestudent.png" alt="Remove Student" /></a>
+<a href="/class/edit/{{ classroom.code }}/"><img src="{{ STATIC_URL }}img/editclassinfo.png" alt="Edit Class Info" /></a>
+<a href="/accounts/profile/"><img src="{{ STATIC_URL }}img/backtoclasslist.png" alt="Back to Class List" /></a>
+<a id="logout" href="/accounts/logout"><img src="{{ STATIC_URL }}img/logout.png" alt="Logout" /></a>
+</div>
+
+</head>
+
+
+<body>
+
+<div id="main">
+{% if messages %}
+	{% for message in messages %}
+	<span class="message">{{ message }}</span> <br /><br /><br />
+	{% endfor %}
+{% endif %}
+
+<form action="/accounts/profile/class{{ classroom.code }}/assign/" method="post"> 
+{% csrf_token %}
+<select name="assignedtest">
+	<option value="----">----</option>
+	{% for test in all_tests %}
+	<option value="{{ test.name }}">{{ test.name }}</option>
+	{% endfor %}
+</select>
+<button id="submitbutton" type="submit"><img src="{{ STATIC_URL }}img/assign.png" alt="Assign" /></button>
+</form>
+<form action="/accounts/profile/class{{ classroom.code }}/assigntostudent/" method="post"> 
+{% csrf_token %}
+<select name="assignedtest">
+	<option value="----">----</option>
+	{% for test in available_tests %}
+	<option value="{{ test.name }}">{{ test.name }}</option>
+	{% endfor %}
+</select>
+<span id="to">to</span>
+<select name="student">
+	<option value="----">----</option>
+	{% for student in students %}
+	<option value="{{ student.username }}">{{ student.first_name }} {{ student.last_name }}</option>
+	{% endfor %}
+</select>
+<button id="submitbutton" type="submit"><img src="{{ STATIC_URL }}img/assigntostudent.png" alt="Assign to Student" /></button>
+</form>
+<form action="/accounts/profile/class{{ classroom.code }}/deactivate/" method="post"> 
+{% csrf_token %}
+<select name="deactivatedtest">
+	<option value="----">----</option>
+	{% for test in available_tests %}
+	<option value="{{ test.name }}">{{ test.name }}</option>
+	{% endfor %}
+</select>
+<button id="submitbutton" type="submit"><img src="{{ STATIC_URL }}img/deactivate.png" alt="Deactivate" /></button>
+</form>
+<form action="/accounts/profile/class{{ classroom.code }}/unassign/" method="post"> 
+{% csrf_token %}
+<select name="unassignedtest">
+	<option value="----">----</option>
+	{% for test in available_tests %}
+	<option value="{{ test.name }}">{{ test.name }}</option>
+	{% endfor %}
+</select>
+<button id="submitbutton" type="submit"><img src="{{ STATIC_URL }}img/unassign.png" alt="Unassign" /></button>
+</form>
+<br />
+<br />
+<p> <strong>Assigning</strong> a test will allow current students in the class to take that test. <strong>Note:</strong> Students added to the class after an assignment will not be able to.
+<p> <strong>Assigning to a Student</strong> will allow just that student to take the chosen test.
+<p> <strong>Deactivating</strong> a test will no longer allow students in this class to take that test. If all students have taken the test by the deadline, deactivating is unnecessary.</p>
+<p> <strong>Unassigning</strong> a test will destroy all test data that students in this class have submitted for that particular test. Only unassign if you've assigned the wrong test.</p>
+<br />
+
+<span id="heading">Class {{ classroom.code }} ({{ classroom.level }}): {{ classroom.get_day_display }}, {{ classroom.description }}</span><br />
+<br />
+<table>
+<tr><th>Username</th><th>First Name</th><th>Last Name</th>{% for test in available_tests %}<th>{{ test.name }}</th>{% endfor %}
+{% for student in students %}
+	<tr class="{% cycle 'odd' 'even' %}"><td><a href="/class/{{ classroom.code }}/editstudent/{{ student.username }}/">{{ student.username }}</a></td><td>{{ student.first_name }}</td><td>{{ student.last_name }}</td>
+	{% for test in available_tests %}
+	<td> {{ student_record|key:student.username|key:test.name|key:'grade' }}{% if student_record|key:student.username|key:test.name|key:'permission' %}*{% endif %}</td>
+	{% endfor %}
+	</tr>
+{% endfor %}
+
+</table><br /><br /><br />
+<p>*Signifies that the student is still permitted to take the test.</p>
+
+</div>
+
+
+
+</body>
+</html>

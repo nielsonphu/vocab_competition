@@ -1,0 +1,1 @@
+Administers and automatically scores timed vocabulary tests for competition.
